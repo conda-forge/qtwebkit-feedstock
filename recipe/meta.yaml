@@ -1,6 +1,6 @@
 {% set name = "qtwebkit" %}
-{% set version = "5.6.2" %}
-{% set md5 = "5196f47b75e2d6cc9663c89cf9902ef0" %}
+{% set version = "5.6.3" %}
+{% set md5 = "d99754a17c0afdda00b0684675a035ab" %}
 
 package:
   name: {{ name|lower }}
