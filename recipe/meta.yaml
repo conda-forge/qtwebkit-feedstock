@@ -12,15 +12,17 @@ source:
   md5: {{ md5 }}
 
 build:
-  number: 0
+  number: 1
   skip: True  # [not osx]
 
 requirements:
   build:
     - toolchain
-    - qt 5.6.*
+    # qtwebkit needs to be used against the same version of Qt that
+    # it was released for.
+    - qt {{ version }}
   run:
-    - qt 5.6.*
+    - qt {{ version }}
 
 test:
   commands:
