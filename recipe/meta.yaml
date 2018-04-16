@@ -1,18 +1,17 @@
-{% set name = "qtwebkit" %}
 {% set version = "5.6.2" %}
-{% set md5 = "5196f47b75e2d6cc9663c89cf9902ef0" %}
+{% set ver = version[:3] %}
 
 package:
-  name: {{ name|lower }}
+  name: qtwebkit
   version: {{ version }}
 
 source:
-  fn: {{ name }}-opensource-src-{{ version }}.tar.xz
-  url: http://download.qt.io/community_releases/5.6/{{ version }}/{{ name }}-opensource-src-{{ version }}.tar.xz
-  md5: {{ md5 }}
+  url: http://download.qt.io/community_releases/{{ ver }}/{{ version }}/qtwebkit-opensource-src-{{ version }}.tar.xz
+  sha256: 528a6b8b1c5095367b26e8ce4f3a46bb739e2e9913ff4dfc6ef58a04fcd73966
 
 build:
   number: 1
+  skip: True  # [not osx]
 
 requirements:
   build:
@@ -26,6 +25,7 @@ requirements:
 test:
   commands:
     - test -f $PREFIX/lib/libQt5WebKit.dylib  # [osx]
+    - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
     - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]
 
 about:
