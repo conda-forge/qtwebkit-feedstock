@@ -1,5 +1,5 @@
 {% set version = "5.6.2" %}
-{% set ver = version[:3] %}
+{% set ver = '.'.join(version.split('.')[:2]) %}
 
 package:
   name: qtwebkit
