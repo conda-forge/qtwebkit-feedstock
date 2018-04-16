@@ -17,14 +17,16 @@ and can theoretically be used on any platform supported by Qt
 Current build status
 ====================
 
-Linux: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/qtwebkit-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/qtwebkit-feedstock)
-Windows: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
+![Linux disabled](https://img.shields.io/badge/linux-disabled-lightgrey.svg)
+[![OSX](https://img.shields.io/travis/conda-forge/qtwebkit-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/qtwebkit-feedstock)
+![Windows disabled](https://img.shields.io/badge/Windows-disabled-lightgrey.svg)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/qtwebkit/badges/version.svg)](https://anaconda.org/conda-forge/qtwebkit)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/qtwebkit/badges/downloads.svg)](https://anaconda.org/conda-forge/qtwebkit)
+
+[![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/qtwebkit.svg)](https://anaconda.org/conda-forge/qtwebkit)
+[![Conda Version](https://img.shields.io/conda/vn/conda-forge/qtwebkit.svg)](https://anaconda.org/conda-forge/qtwebkit)
+[![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/qtwebkit.svg)](https://anaconda.org/conda-forge/qtwebkit)
 
 Installing qtwebkit
 ===================
