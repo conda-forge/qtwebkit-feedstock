@@ -24,9 +24,9 @@ Current build status
 Current release info
 ====================
 
-[![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/qtwebkit.svg)](https://anaconda.org/conda-forge/qtwebkit)
-[![Conda Version](https://img.shields.io/conda/vn/conda-forge/qtwebkit.svg)](https://anaconda.org/conda-forge/qtwebkit)
-[![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/qtwebkit.svg)](https://anaconda.org/conda-forge/qtwebkit)
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-qtwebkit-green.svg)](https://anaconda.org/conda-forge/qtwebkit) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/qtwebkit.svg)](https://anaconda.org/conda-forge/qtwebkit) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/qtwebkit.svg)](https://anaconda.org/conda-forge/qtwebkit) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/qtwebkit.svg)](https://anaconda.org/conda-forge/qtwebkit) |
 
 Installing qtwebkit
 ===================
