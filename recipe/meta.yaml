@@ -10,17 +10,19 @@ source:
   sha256: 528a6b8b1c5095367b26e8ce4f3a46bb739e2e9913ff4dfc6ef58a04fcd73966
 
 build:
-  number: 1
+  number: 2
   skip: True  # [not osx]
 
 requirements:
   build:
-    - toolchain
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
     # qtwebkit needs to be used against the same version of Qt that
     # it was released for.
-    - qt {{ version }}
+    - qt  {{ version }}
   run:
-    - qt {{ version }}
+    - qt  {{ version }}
 
 test:
   commands:
@@ -34,8 +36,8 @@ about:
   license_file: LICENSE.GPLv3
   summary: 'WebKit is one of the major engine to render webpages and execute JavaScript code'
   description: |
-    Qt WebKit is the port of WebKit on top of Qt. QtWebKit relies on the public APIs of Qt 
-    and can theoretically be used on any platform supported by Qt 
+    Qt WebKit is the port of WebKit on top of Qt. QtWebKit relies on the public APIs of Qt
+    and can theoretically be used on any platform supported by Qt
     (theoretically because WebKit also requires a recent/good compiler).
 
 extra:
