@@ -1,0 +1,23 @@
+diff --git a/Tools/Scripts/webkitdirs.pm b/Tools/Scripts/webkitdirs.pm
+index 84b18c7..9e879ea 100755
+--- a/Tools/Scripts/webkitdirs.pm
++++ b/Tools/Scripts/webkitdirs.pm
+@@ -348,17 +348,7 @@ sub determineArchitecture
+         }
+     } elsif (isCMakeBuild()) {
+         my $host_processor = "";
+-        if (open my $cmake_sysinfo, "cmake --system-information |") {
+-            while (<$cmake_sysinfo>) {
+-                next unless index($_, 'CMAKE_SYSTEM_PROCESSOR') == 0;
+-                if (/^CMAKE_SYSTEM_PROCESSOR \"([^"]+)\"/) {
+-                    $architecture = $1;
+-                    $architecture = 'x86_64' if $architecture eq 'amd64';
+-                    last;
+-                }
+-            }
+-            close $cmake_sysinfo;
+-        }
++        $architecture = 'x86_64';
+     }
+ 
+     if (!isAnyWindows()) {

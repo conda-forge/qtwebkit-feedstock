@@ -1,0 +1,14 @@
+diff --git a/Source/cmake/OptionsQt.cmake b/Source/cmake/OptionsQt.cmake
+index 1930027..3f87d4c 100755
+--- a/Source/cmake/OptionsQt.cmake
++++ b/Source/cmake/OptionsQt.cmake
+@@ -800,7 +800,8 @@ if (MSVC)
+     endif ()
+ 
+     if (NOT QT_CONAN_DIR)
+-        set(ICU_LIBRARIES icuuc${CMAKE_DEBUG_POSTFIX} icuin${CMAKE_DEBUG_POSTFIX} icudt${CMAKE_DEBUG_POSTFIX})
++        get_filename_component(_ICU_LIBRARIES_DIR ${ICU_LIBRARIES} PATH)
++        set(ICU_LIBRARIES ${_ICU_LIBRARIES_DIR}/icuuc${CMAKE_DEBUG_POSTFIX} ${_ICU_LIBRARIES_DIR}/icuin${CMAKE_DEBUG_POSTFIX} ${_ICU_LIBRARIES_DIR}/icudt${CMAKE_DEBUG_POSTFIX})
+     endif ()
+ endif ()
+ 
