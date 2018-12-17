@@ -6,6 +6,7 @@ package:
   version: {{ version }}
 
 source:
+  # TODO: see if 5.212 should be the src for *nix
   - url: http://download.qt.io/community_releases/{{ ver }}/{{ version }}-final/qtwebkit-opensource-src-{{ version }}.tar.xz  # [not win]
     sha256: 8dad193b740055a998312e04a040f2e32a923c0823b2d239b24eab08276a4e04  # [not win]
   - url: https://github.com/qt/qtwebkit/archive/v5.212.0-alpha2.zip  # [win]
@@ -13,15 +14,16 @@ source:
     sha256: f2598a511c4e240f0b005c0aac44e40e17244bb3b0f19cbab1a77bf0ec38183a  # [win]
     patches:
       # ICU paths are incomplete (needs reported; though probably works with non-VS CMake generators)
-      - 0000-options-qt-full-icu-paths.patch
+      - 0000-options-qt-full-icu-paths.patch  # [win]
       # When crosscompiling on Win 7 with VS2017, but using VS2015, `cmake --system-information`
       # forces v141 instead of v140 since it uses VS2017, by default.
       # This causes MSBuild to not find the platform targets, then error.
-      - 0001-webkitdirs-hardcode-64-bit.patch
+      - 0001-webkitdirs-hardcode-64-bit.patch  # [win]
 
 build:
   number: 0
   skip: True  # [win and vc != 14]
+  detect_binary_files_with_prefix: true
 
 requirements:
   build:
@@ -30,20 +32,13 @@ requirements:
     - bison             # [not win]
     - flex              # [not win]
     - m4                # [not win]
-    - m2-bison          # [win]
-    - m2-flex           # [win]
-    - m2-gperf          # [win]
-    - m2-grep           # [win]
-    - m2-m4             # [win]
     - cmake             # [win]
-    - perl 5.*          # [win]
     - python 2.7*       # [win]
+    # - perl 5.*          # [win]
     - ninja             # [win]
   host:
     - qt {{ ver }}.*
     - icu               # [win]
-    - freetype          # [win]
-    - fontconfig        # [win]
     - jpeg              # [win]
     - libiconv          # [win]
     - libpng            # [win]
@@ -58,15 +53,15 @@ requirements:
 test:
   commands:
     - test -f $PREFIX/lib/libQt5WebKit.dylib  # [osx]
-    - test -f $PREFIX/lib/libQt5WebKit.lib  # [win]
-    - test -f $PREFIX/bin/Qt5WebKit.dll  # [win]
+    - if not exist %LIBRARY_LIB%\libQt5WebKit.lib exit 1  # [win]
+    - if not exist %LIBRARY_BIN%\Qt5WebKit.dll exit 1  # [win]
     - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
     - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]
 
 about:
   home: https://wiki.qt.io/Qt_WebKit
-  license: GPL-3.0
-  license_file: LICENSE.GPLv3
+  license: LGPL-2.1
+  license_file: LICENSE.LGPLv21
   summary: 'WebKit is one of the major engine to render webpages and execute JavaScript code'
   description: |
     Qt WebKit is the port of WebKit on top of Qt. QtWebKit relies on the public APIs of Qt
