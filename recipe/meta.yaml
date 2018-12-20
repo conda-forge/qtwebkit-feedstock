@@ -53,7 +53,7 @@ requirements:
 test:
   commands:
     - test -f $PREFIX/lib/libQt5WebKit.dylib  # [osx]
-    - if not exist %LIBRARY_LIB%\libQt5WebKit.lib exit 1  # [win]
+    - if not exist %LIBRARY_LIB%\Qt5WebKit.lib exit 1  # [win]
     - if not exist %LIBRARY_BIN%\Qt5WebKit.dll exit 1  # [win]
     - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
     - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]
