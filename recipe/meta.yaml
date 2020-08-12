@@ -37,6 +37,8 @@ requirements:
     # - perl 5.*          # [win]
     - ninja             # [win]
   host:
+    # qtwebkit needs to be used against the same version of Qt that
+    # it was released for.
     - qt {{ ver }}.*
     - icu               # [win]
     - jpeg              # [win]
