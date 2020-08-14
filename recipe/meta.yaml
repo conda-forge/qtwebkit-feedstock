@@ -51,6 +51,7 @@ requirements:
     - libwebp           # [win]
     - sqlite            # [win]
     - zlib              # [win]
+    - python 3.*
   run:
     - qt {{ ver }}.*
     - python 3.*
