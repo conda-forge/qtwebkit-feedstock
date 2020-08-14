@@ -14,11 +14,11 @@ source:
     sha256: 4076bfa20e00feede3d228663719fb1b5645e00b602fc804f902cc047cd8f927  # [win]
     patches:
       # ICU paths are incomplete (needs reported; though probably works with non-VS CMake generators)
-      - 0000-options-qt-full-icu-paths.patch  # [win]
+      #- 0000-options-qt-full-icu-paths.patch  # [win]
       # When crosscompiling on Win 7 with VS2017, but using VS2015, `cmake --system-information`
       # forces v141 instead of v140 since it uses VS2017, by default.
       # This causes MSBuild to not find the platform targets, then error.
-      - 0001-webkitdirs-hardcode-64-bit.patch  # [win]
+      #- 0001-webkitdirs-hardcode-64-bit.patch  # [win]
 
 build:
   number: 0
