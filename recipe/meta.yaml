@@ -11,7 +11,7 @@ source:
     sha256: 8dad193b740055a998312e04a040f2e32a923c0823b2d239b24eab08276a4e04  # [not win]
   - url: https://github.com/qt/qtwebkit/archive/v5.212.0-alpha4.zip  # [win]
     fn: qtwebkit-opensource-src-{{ version }}-v5.212.0-alpha4.zip
-    sha256: f2598a511c4e240f0b005c0aac44e40e17244bb3b0f19cbab1a77bf0ec38183a  # [win]
+    sha256: 4076bfa20e00feede3d228663719fb1b5645e00b602fc804f902cc047cd8f927  # [win]
     patches:
       # ICU paths are incomplete (needs reported; though probably works with non-VS CMake generators)
       - 0000-options-qt-full-icu-paths.patch  # [win]
