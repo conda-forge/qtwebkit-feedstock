@@ -36,6 +36,8 @@ requirements:
     - python 2.7*       # [win]
     - perl 5.*          # [win]
     - ninja             # [win]
+    - gperf             # [linux]
+    - ruby              # [linux]
   host:
     # qtwebkit needs to be used against the same version of Qt that
     # it was released for.
