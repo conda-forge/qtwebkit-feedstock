@@ -24,6 +24,8 @@ build:
   number: 0
   skip: True  # [win and vc != 14]
   detect_binary_files_with_prefix: true
+  script_env:
+    - PYTHON
 
 requirements:
   build:
@@ -32,6 +34,7 @@ requirements:
     - bison             # [not win]
     - flex              # [not win]
     - m4                # [not win]
+    - python 3.*        # [win]
     - cmake             # [win]
     - conan             # [win]
     - ninja             # [win]
@@ -48,7 +51,6 @@ requirements:
     - libwebp           # [win]
     - sqlite            # [win]
     - zlib              # [win]
-    - python 3.*        # [win]
   run:
     - qt {{ ver }}.*
     - python 3.*
