@@ -52,6 +52,7 @@ requirements:
     - python 3.*        # [win]
   run:
     - qt {{ ver }}.*
+    - python 3.*
 
 test:
   commands:
