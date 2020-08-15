@@ -9,7 +9,7 @@ source:
   # TODO: see if 5.212 should be the src for *nix
   #- url: http://download.qt.io/community_releases/{{ ver }}/{{ version }}-final/qtwebkit-opensource-src-{{ version }}.tar.xz  # [not win]
   #  sha256: 8dad193b740055a998312e04a040f2e32a923c0823b2d239b24eab08276a4e04  # [not win]
-  #- url: https://github.com/qt/qtwebkit/archive/v5.212.0-alpha4.zip
+  - url: https://github.com/qt/qtwebkit/archive/v5.212.0-alpha4.zip
     fn: qtwebkit-opensource-src-{{ version }}-v5.212.0-alpha4.zip
     sha256: 4076bfa20e00feede3d228663719fb1b5645e00b602fc804f902cc047cd8f927  # [win]
     patches:
