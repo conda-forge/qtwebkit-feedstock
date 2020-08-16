@@ -35,7 +35,7 @@ requirements:
     - flex              # [not win]
     - m4                # [not win]
     - python 3.*        # [win]
-    - cmake             # [win]
+    - cmake
     - conan             # [win]
     - ninja             # [win]
     - gperf             # [linux]
