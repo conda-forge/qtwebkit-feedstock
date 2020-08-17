@@ -11,9 +11,9 @@ REM      But, use source tarball from Qt Project; projects identical as of 2018-
 
 cd Tools\qt
 
-py build-qtwebkit-conan.py^
---compiler=msvc^
---qt=C:\Qt\5.9\msvc2017_64^
+py build-qtwebkit-conan.py ^
+--compiler=msvc ^
+--qt=%INCLUDE%\qt ^
 --install
 
 REM Ninja worked up until `fatal error LNK1248: image size exceeds maximum allowable size` for JavaScriptCore.lib (needed /GL-; see below)
