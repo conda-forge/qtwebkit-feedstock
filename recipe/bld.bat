@@ -11,6 +11,9 @@ REM      But, use source tarball from Qt Project; projects identical as of 2018-
 
 cd Tools\qt
 
+REM Debug folder containers
+dir
+
 py %SRC_DIR%\Tools\qt\build-qtwebkit-conan.py ^
 --compiler=msvc ^
 --qt=%PREFIX%\Library\include\qt ^
