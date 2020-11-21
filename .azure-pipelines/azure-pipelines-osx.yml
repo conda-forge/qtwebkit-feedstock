@@ -8,23 +8,11 @@ jobs:
     vmImage: macOS-10.15
   strategy:
     matrix:
-      osx_64_python3.6.____cpythonruby2.5:
-        CONFIG: osx_64_python3.6.____cpythonruby2.5
+      osx_64_ruby2.5:
+        CONFIG: osx_64_ruby2.5
         UPLOAD_PACKAGES: 'True'
-      osx_64_python3.6.____cpythonruby2.6:
-        CONFIG: osx_64_python3.6.____cpythonruby2.6
-        UPLOAD_PACKAGES: 'True'
-      osx_64_python3.7.____cpythonruby2.5:
-        CONFIG: osx_64_python3.7.____cpythonruby2.5
-        UPLOAD_PACKAGES: 'True'
-      osx_64_python3.7.____cpythonruby2.6:
-        CONFIG: osx_64_python3.7.____cpythonruby2.6
-        UPLOAD_PACKAGES: 'True'
-      osx_64_python3.8.____cpythonruby2.5:
-        CONFIG: osx_64_python3.8.____cpythonruby2.5
-        UPLOAD_PACKAGES: 'True'
-      osx_64_python3.8.____cpythonruby2.6:
-        CONFIG: osx_64_python3.8.____cpythonruby2.6
+      osx_64_ruby2.6:
+        CONFIG: osx_64_ruby2.6
         UPLOAD_PACKAGES: 'True'
   timeoutInMinutes: 360
 

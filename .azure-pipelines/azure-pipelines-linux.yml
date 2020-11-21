@@ -8,28 +8,12 @@ jobs:
     vmImage: ubuntu-16.04
   strategy:
     matrix:
-      linux_64_python3.6.____cpythonruby2.5:
-        CONFIG: linux_64_python3.6.____cpythonruby2.5
+      linux_64_ruby2.5:
+        CONFIG: linux_64_ruby2.5
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
-      linux_64_python3.6.____cpythonruby2.6:
-        CONFIG: linux_64_python3.6.____cpythonruby2.6
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
-      linux_64_python3.7.____cpythonruby2.5:
-        CONFIG: linux_64_python3.7.____cpythonruby2.5
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
-      linux_64_python3.7.____cpythonruby2.6:
-        CONFIG: linux_64_python3.7.____cpythonruby2.6
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
-      linux_64_python3.8.____cpythonruby2.5:
-        CONFIG: linux_64_python3.8.____cpythonruby2.5
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
-      linux_64_python3.8.____cpythonruby2.6:
-        CONFIG: linux_64_python3.8.____cpythonruby2.6
+      linux_64_ruby2.6:
+        CONFIG: linux_64_ruby2.6
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
   timeoutInMinutes: 360

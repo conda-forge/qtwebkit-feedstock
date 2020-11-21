@@ -13,16 +13,11 @@ perl:
 pin_run_as_build:
   perl:
     max_pin: x.x.x
-  python:
-    min_pin: x.x
-    max_pin: x.x
   qt:
     max_pin: x.x
-python:
-- 3.8.* *_cpython
 qt:
 - '5.12'
 ruby:
-- '2.6'
+- '2.5'
 target_platform:
 - win-64
