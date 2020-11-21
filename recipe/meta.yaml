@@ -1,37 +1,64 @@
-{% set version = "5.9.0" %}
-{% set ver = '.'.join(version.split('.')[:2]) %}
+{% set version = "5.212" %}
 
 package:
   name: qtwebkit
   version: {{ version }}
 
 source:
-  url: http://download.qt.io/community_releases/{{ ver }}/{{ version }}-final/qtwebkit-opensource-src-{{ version }}.tar.xz
-  sha256: 8dad193b740055a998312e04a040f2e32a923c0823b2d239b24eab08276a4e04
+  url: http://download.qt.io/snapshots/ci/qtwebkit/{{ version }}/latest/src/submodules/qtwebkit-opensource-src-{{ version }}.tar.xz
+  sha256: 10cbdaba60aac79d27016aa05bae9ab3ec7b0aed4df163debfbf8fddd66adc14
 
 build:
   number: 0
-  skip: True  # [not osx]
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    # The CDT packages below are those used in qt-feedstock
+    - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
+    - {{ cdt('libx11-devel') }}          # [linux]
+    - {{ cdt('libxext-devel') }}         # [linux]
+    - {{ cdt('libxrender-devel') }}      # [linux]    
+    - {{ cdt('mesa-libgl-devel') }}      # [linux]
+    - {{ cdt('mesa-dri-drivers') }}      # [linux]
+    - {{ cdt('libselinux') }}            # [linux]
+    - {{ cdt('libxdamage') }}            # [linux]
+    - {{ cdt('libxfixes') }}             # [linux]
+    - {{ cdt('libxxf86vm') }}            # [linux]
+    - {{ cdt('libxcb') }}                # [linux]
+    - {{ cdt('libxext') }}               # [linux]
+    - {{ cdt('libxau') }}                # [linux]
+    - {{ cdt('libxcomposite-devel') }}   # [linux]
+    - cmake
+    - ninja
+    - python 2.7
+    - perl
+    - ruby
+    - m2-bison  # [win]
+    - bison  # [unix]
+    - m2-flex  # [win]
+    - flex  # [unix]
+    - m2-gperf  # [win]
+    - gperf  # [unix]
   host:
-    # qtwebkit needs to be used against the same version of Qt that
-    # it was released for.
-    - qt {{ ver }}
+    - qt
+    - libxslt
+    - libwebp
   run:
-    - qt {{ ver }}
+    - qt
 
 test:
   commands:
-    - test -f $PREFIX/lib/libQt5WebKit.dylib  # [osx]
+    - test -f $PREFIX/lib/libQt5WebKit${SHLIB_EXT}  # [not win]
+    - test -f $PREFIX/lib/libQt5WebKitWidgets${SHLIB_EXT}  # [not win]
+    - if not exist %LIBRARY_BIN%\\Qt5WebKit.dll exit 1  # [win]
+    - if not exist %LIBRARY_BIN%\\Qt5WebKitWidgets.dll exit 1  # [win]
 
 about:
   home: https://wiki.qt.io/Qt_WebKit
-  license: GPL-3.0
-  license_file: LICENSE.GPLv3
+  license: LGPL-2.1
+  license_file: LICENSE.LGPLv21
   summary: 'WebKit is one of the major engine to render webpages and execute JavaScript code'
   description: |
     Qt WebKit is the port of WebKit on top of Qt. QtWebKit relies on the public APIs of Qt
