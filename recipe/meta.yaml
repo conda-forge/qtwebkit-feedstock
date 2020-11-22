@@ -34,7 +34,8 @@ requirements:
     - ninja
     - python 2.7
     - perl
-    - ruby
+    # only ruby 2.7 and later appear to be available on Windows
+    - ruby 2.7 
     - m2-bison  # [win]
     - bison  # [unix]
     - m2-flex  # [win]
@@ -57,7 +58,7 @@ test:
 
 about:
   home: https://wiki.qt.io/Qt_WebKit
-  license: LGPL-2.1
+  license: LGPL-2.1-only
   license_file: LICENSE.LGPLv21
   summary: 'WebKit is one of the major engine to render webpages and execute JavaScript code'
   description: |
