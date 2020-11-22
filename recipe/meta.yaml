@@ -7,6 +7,9 @@ package:
 source:
   url: http://download.qt.io/snapshots/ci/qtwebkit/{{ version }}/latest/src/submodules/qtwebkit-opensource-src-{{ version }}.tar.xz
   sha256: 10cbdaba60aac79d27016aa05bae9ab3ec7b0aed4df163debfbf8fddd66adc14
+  patches:
+    # include is wrong for older OSX version
+    - 0001-osx-fix-vm-include.patch  # [osx]
 
 build:
   number: 0
@@ -32,9 +35,18 @@ requirements:
     - {{ cdt('libxcomposite-devel') }}   # [linux]
     - cmake
     - ninja
-    - python 2.7
+    # On Linux, cmake picks up /usr/bin/python2 (since python2 is checked
+    # first) which is v2.6 and too old. Workaround this by giving it a
+    # new Python 2
+    - python 2.7  # [linux]
+    # On other platforms, use a recent Python (but fix version so we don't
+    # end up with combos being built). This is especially needed on Windows
+    # so we end up with a Python with a recent runtime. 
+    - python 3.8  # [not linux]
     - perl
     # only ruby 2.7 and later appear to be available on Windows
+    # and leaving this blank ends up with all possible combination
+    # of versions...
     - ruby 2.7 
     - m2-bison  # [win]
     - bison  # [unix]
