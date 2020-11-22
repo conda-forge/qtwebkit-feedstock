@@ -3,7 +3,7 @@ About qtwebkit
 
 Home: https://wiki.qt.io/Qt_WebKit
 
-Package license: GPL-3.0
+Package license: LGPL-2.1
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/qtwebkit-feedstock/blob/master/LICENSE.txt)
 
