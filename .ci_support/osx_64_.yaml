@@ -12,6 +12,8 @@ cxx_compiler:
 - clangxx
 cxx_compiler_version:
 - '11'
+jpeg:
+- '9'
 libpng:
 - '1.6'
 libwebp:
@@ -21,6 +23,8 @@ macos_machine:
 perl:
 - 5.26.2
 pin_run_as_build:
+  jpeg:
+    max_pin: x
   libpng:
     max_pin: x.x
   perl:

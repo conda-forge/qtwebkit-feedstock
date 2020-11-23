@@ -8,6 +8,8 @@ cxx_compiler:
 - vs2017
 icu:
 - '67'
+jpeg:
+- '9'
 libpng:
 - '1.6'
 libwebp:
@@ -15,6 +17,8 @@ libwebp:
 perl:
 - 5.26.2
 pin_run_as_build:
+  jpeg:
+    max_pin: x
   libpng:
     max_pin: x.x
   perl:
