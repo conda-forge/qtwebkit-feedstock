@@ -1,0 +1,25 @@
+--- Source/WTF/wtf/OSRandomSource.cpp.orig	2020-11-23 10:38:28.865834087 +1000
++++ Source/WTF/wtf/OSRandomSource.cpp	2020-11-23 10:38:51.010118450 +1000
+@@ -40,11 +40,6 @@
+ #include <wincrypt.h> // windows.h must be included before wincrypt.h.
+ #endif
+ 
+-#if OS(DARWIN)
+-#include <CommonCrypto/CommonCryptoError.h>
+-#include <CommonCrypto/CommonRandom.h>
+-#endif
+-
+ namespace WTF {
+ 
+ #if !OS(DARWIN) && OS(UNIX)
+@@ -61,9 +56,7 @@
+     
+ void cryptographicallyRandomValuesFromOS(unsigned char* buffer, size_t length)
+ {
+-#if OS(DARWIN)
+-    RELEASE_ASSERT(!CCRandomGenerateBytes(buffer, length));
+-#elif OS(UNIX)
++#if OS(UNIX)
+     int fd = open("/dev/urandom", O_RDONLY, 0);
+     if (fd < 0)
+         crashUnableToOpenURandom(); // We need /dev/urandom for this API to work...
