@@ -12,6 +12,8 @@ cxx_compiler:
 - clangxx
 cxx_compiler_version:
 - '11'
+libpng:
+- '1.6'
 libwebp:
 - '1.1'
 macos_machine:
@@ -19,14 +21,24 @@ macos_machine:
 perl:
 - 5.26.2
 pin_run_as_build:
+  libpng:
+    max_pin: x.x
   perl:
     max_pin: x.x.x
   qt:
     max_pin: x.x
+  sqlite:
+    max_pin: x
+  zlib:
+    max_pin: x.x
 qt:
 - '5.12'
+sqlite:
+- '3'
 target_platform:
 - osx-64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
+zlib:
+- '1.2'
