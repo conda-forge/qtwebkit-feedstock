@@ -69,7 +69,7 @@ requirements:
     - zlib
     - libpng
     - libwebp
-    - icu  # [not osx]
+    - icu
   run:
     - qt
     - libxslt
@@ -78,7 +78,7 @@ requirements:
     - zlib
     - libpng
     - libwebp
-    - icu  # [not osx]
+    - icu
 
 test:
   commands:
