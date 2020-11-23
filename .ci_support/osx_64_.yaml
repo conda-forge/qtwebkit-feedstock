@@ -12,6 +12,8 @@ cxx_compiler:
 - clangxx
 cxx_compiler_version:
 - '11'
+icu:
+- '67'
 jpeg:
 - '9'
 libpng:
