@@ -63,7 +63,7 @@ requirements:
     - qt
     - libxslt
     - sqlite
-    - libjpeg
+    - jpeg
     - zlib
     - libpng
     - libwebp
@@ -72,7 +72,7 @@ requirements:
     - qt
     - libxslt
     - sqlite
-    - libjpeg
+    - jpeg
     - zlib
     - libpng
     - libwebp
