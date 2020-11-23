@@ -62,9 +62,21 @@ requirements:
   host:
     - qt
     - libxslt
+    - sqlite
+    - libjpeg
+    - zlib
+    - libpng
     - libwebp
+    - icu  # [not osx]
   run:
     - qt
+    - libxslt
+    - sqlite
+    - libjpeg
+    - zlib
+    - libpng
+    - libwebp
+    - icu  # [not osx]
 
 test:
   commands:
