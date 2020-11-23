@@ -22,12 +22,16 @@ libpng:
 - '1.6'
 libwebp:
 - '1.1'
+libxml2:
+- '2.9'
 perl:
 - 5.26.2
 pin_run_as_build:
   jpeg:
     max_pin: x
   libpng:
+    max_pin: x.x
+  libxml2:
     max_pin: x.x
   perl:
     max_pin: x.x.x
