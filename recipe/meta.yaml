@@ -15,6 +15,8 @@ source:
     - 0002-osx-fix-urandom.patch  # [osx]
     # Fix path for ICU libs on Windows - seems to pick up some system libs instead
     - 0003-win-fix-icu-path.patch  # [win]
+    # QOS Stuff introduced in OSX SDK 10.10
+    - 0004-osx-noqos.patch  # [osx]
 
 build:
   number: 0
