@@ -52,7 +52,9 @@ requirements:
     # end up with combos being built). This is especially needed on Windows
     # so we end up with a Python with a recent runtime. 
     - python 3.8  # [not linux]
-    - perl
+    # Need Unix line endings on Windows with output of perl scripts
+    - perl  # [not win]
+    - m2-perl  # [win]
     # only ruby 2.7 and later appear to be available on Windows
     # and leaving this blank ends up with all possible combination
     # of versions...
