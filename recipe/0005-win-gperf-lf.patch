@@ -1,0 +1,11 @@
+--- Source/WebCore/platform/network/create-http-header-name-table.orig	2020-11-24 14:11:54.102671419 +1000
++++ Source/WebCore/platform/network/create-http-header-name-table	2020-11-24 14:12:15.150863937 +1000
+@@ -54,7 +54,7 @@
+ 
+ http_header_names.sort()
+ 
+-gperf_file = open('HTTPHeaderNames.gperf', 'w')
++gperf_file = open('HTTPHeaderNames.gperf', 'w', newline='\n')
+ gperf_file.write('''
+ %{
+ /*

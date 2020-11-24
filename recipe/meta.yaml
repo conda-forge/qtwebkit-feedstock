@@ -17,6 +17,8 @@ source:
     - 0003-win-fix-icu-path.patch  # [win]
     # QOS Stuff introduced in OSX SDK 10.10
     - 0004-osx-noqos.patch  # [osx]
+    # MSYS gperf needs Unix newlines
+    - 0005-win-gperf-lf.patch  # [win]
 
 build:
   number: 0
