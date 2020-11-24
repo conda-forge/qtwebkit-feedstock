@@ -9,3 +9,14 @@
  gperf_file.write('''
  %{
  /*
+--- ./Source/WebCore/css/makeSelectorPseudoElementsMap.py.orig	2020-11-25 08:42:01.215641505 +1000
++++ ./Source/WebCore/css/makeSelectorPseudoElementsMap.py	2020-11-25 08:42:15.715862161 +1000
+@@ -57,7 +57,7 @@
+ def expand_ifdef_condition(condition):
+     return condition.replace('(', '_').replace(')', '')
+ 
+-output_file = open('SelectorPseudoElementTypeMap.gperf', 'w')
++output_file = open('SelectorPseudoElementTypeMap.gperf', 'w', newline='\n')
+ 
+ output_file.write("""
+ %{

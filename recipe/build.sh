@@ -4,8 +4,8 @@ mkdir build
 cd build
 
 if [ $(uname) == Darwin ]; then
-    # the default values of these require a newer SDK...
-    PLATFORM_OPTS="-D MACOS_USE_SYSTEM_ICU=OFF -D USE_UNIX_DOMAIN_SOCKETS=ON -D MACOS_FORCE_SYSTEM_XML_LIBRARIES=OFF"
+    # Use Conda rather than system icu/libxml2 etc (correct?)
+    PLATFORM_OPTS="-D MACOS_USE_SYSTEM_ICU=OFF -D MACOS_BUILD_FRAMEWORKS=OFF -D MACOS_FORCE_SYSTEM_XML_LIBRARIES=OFF"
 else
     PLATFORM_OPTS=""
 fi

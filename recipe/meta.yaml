@@ -9,14 +9,14 @@ source:
   sha256: 10cbdaba60aac79d27016aa05bae9ab3ec7b0aed4df163debfbf8fddd66adc14
   patches:
     # include is wrong for older OSX version
-    - 0001-osx-fix-vm-include.patch  # [osx]
+    #- 0001-osx-fix-vm-include.patch  # [osx]
     # Crypto functions aren't available under older OSX. Use /dev/urandom instead
     # like Linux (hope this is ok)
-    - 0002-osx-fix-urandom.patch  # [osx]
+    #- 0002-osx-fix-urandom.patch  # [osx]
     # Fix path for ICU libs on Windows - seems to pick up some system libs instead
     - 0003-win-fix-icu-path.patch  # [win]
     # QOS Stuff introduced in OSX SDK 10.10
-    - 0004-osx-noqos.patch  # [osx]
+    #- 0004-osx-noqos.patch  # [osx]
     # MSYS gperf needs Unix newlines
     - 0005-win-gperf-lf.patch  # [win]
 
