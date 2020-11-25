@@ -15,10 +15,10 @@ source:
 
 build:
   number: 0
-
-requirements:
   run_exports:
     - qtwebkit
+
+requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
