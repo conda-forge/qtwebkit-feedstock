@@ -17,6 +17,8 @@ build:
   number: 0
 
 requirements:
+  run_exports:
+    - qtwebkit
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
