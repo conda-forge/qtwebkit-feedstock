@@ -20,3 +20,14 @@
  
  output_file.write("""
  %{
+--- ./Source/WebCore/css/makeSelectorPseudoClassAndCompatibilityElementMap.py.orig	2020-11-25 10:56:11.973008355 +1000
++++ ./Source/WebCore/css/makeSelectorPseudoClassAndCompatibilityElementMap.py	2020-11-25 10:56:39.109387662 +1000
+@@ -57,7 +57,7 @@
+ def expand_ifdef_condition(condition):
+     return condition.replace('(', '_').replace(')', '')
+ 
+-output_file = open('SelectorPseudoClassAndCompatibilityElementMap.gperf', 'w')
++output_file = open('SelectorPseudoClassAndCompatibilityElementMap.gperf', 'w', newline='\n')
+ 
+ output_file.write("""
+ %{
