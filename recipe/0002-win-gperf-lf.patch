@@ -31,3 +31,33 @@
  
  output_file.write("""
  %{
+--- ./Source/WebCore/css/makeprop.pl.orig	2020-11-25 13:40:01.806055708 +1000
++++ ./Source/WebCore/css/makeprop.pl	2020-11-25 13:40:33.846878069 +1000
+@@ -26,6 +26,7 @@
+ use preprocessor;
+ use strict;
+ use warnings;
++use open OUT => ':raw';
+ 
+ my $defines;
+ my $preprocessor;
+--- ./Source/WebCore/css/makevalues.pl.orig	2020-11-25 13:41:22.660083294 +1000
++++ ./Source/WebCore/css/makevalues.pl	2020-11-25 13:41:39.708491527 +1000
+@@ -25,6 +25,7 @@
+ use preprocessor;
+ use strict;
+ use warnings;
++use open OUT => ':raw';
+ 
+ my $defines;
+ my $preprocessor;
+--- ./Source/WebCore/make-hash-tools.pl.orig	2020-11-25 13:42:06.641123821 +1000
++++ ./Source/WebCore/make-hash-tools.pl	2020-11-25 13:42:18.685401767 +1000
+@@ -22,6 +22,7 @@
+ 
+ use strict;
+ use File::Basename;
++use open OUT => ':raw';
+ 
+ my $outdir = $ARGV[0];
+ shift;
