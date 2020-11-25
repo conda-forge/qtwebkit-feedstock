@@ -1,11 +1,12 @@
 {% set version = "5.212" %}
+{% set snapshotid = "1600955993" %}
 
 package:
   name: qtwebkit
   version: {{ version }}
 
 source:
-  url: http://download.qt.io/snapshots/ci/qtwebkit/{{ version }}/latest/src/submodules/qtwebkit-opensource-src-{{ version }}.tar.xz
+  url: http://download.qt.io/snapshots/ci/qtwebkit/{{ version }}/{{ snapshotid }}/src/submodules/qtwebkit-opensource-src-{{ version }}.tar.xz
   sha256: 10cbdaba60aac79d27016aa05bae9ab3ec7b0aed4df163debfbf8fddd66adc14
   patches:
     # Fix path for ICU libs on Windows - seems to pick up some system libs instead
