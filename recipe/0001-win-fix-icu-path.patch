@@ -1,0 +1,12 @@
+--- Source/cmake/OptionsQt.cmake.orig	2020-11-23 10:40:19.859260136 +1000
++++ Source/cmake/OptionsQt.cmake	2020-11-23 13:17:23.038004729 +1000
+@@ -956,7 +956,8 @@
+     endif ()
+ 
+     if (NOT QT_CONAN_DIR)
+-        set(ICU_LIBRARIES ${ICU_LIBRARY_PREFIX}icuuc${CMAKE_DEBUG_POSTFIX} ${ICU_LIBRARY_PREFIX}icuin${CMAKE_DEBUG_POSTFIX} ${ICU_LIBRARY_PREFIX}icudt${CMAKE_DEBUG_POSTFIX})
++        get_filename_component(ICU_LIBDIR ${ICU_LIBRARY} DIRECTORY)
++        set(ICU_LIBRARIES ${ICU_LIBDIR}/${ICU_LIBRARY_PREFIX}icuuc${CMAKE_DEBUG_POSTFIX}.lib ${ICU_LIBDIR}/${ICU_LIBRARY_PREFIX}icuin${CMAKE_DEBUG_POSTFIX}.lib ${ICU_LIBDIR}/${ICU_LIBRARY_PREFIX}icudt${CMAKE_DEBUG_POSTFIX}.lib)
+     endif ()
+ endif ()
+ 

@@ -1,37 +1,96 @@
-{% set version = "5.9.0" %}
-{% set ver = '.'.join(version.split('.')[:2]) %}
+{% set version = "5.212" %}
+{% set snapshotid = "1600955993" %}
 
 package:
   name: qtwebkit
   version: {{ version }}
 
 source:
-  url: http://download.qt.io/community_releases/{{ ver }}/{{ version }}-final/qtwebkit-opensource-src-{{ version }}.tar.xz
-  sha256: 8dad193b740055a998312e04a040f2e32a923c0823b2d239b24eab08276a4e04
+  url: http://download.qt.io/snapshots/ci/qtwebkit/{{ version }}/{{ snapshotid }}/src/submodules/qtwebkit-opensource-src-{{ version }}.tar.xz
+  sha256: 10cbdaba60aac79d27016aa05bae9ab3ec7b0aed4df163debfbf8fddd66adc14
+  patches:
+    # Fix path for ICU libs on Windows - seems to pick up some system libs instead
+    - 0001-win-fix-icu-path.patch  # [win]
+    # MSYS gperf needs Unix newlines
+    - 0002-win-gperf-lf.patch  # [win]
 
 build:
   number: 0
-  skip: True  # [not osx]
+  run_exports:
+    - qtwebkit
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    # The CDT packages below are those used in qt-feedstock
+    - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
+    - {{ cdt('libx11-devel') }}          # [linux]
+    - {{ cdt('libxext-devel') }}         # [linux]
+    - {{ cdt('libxrender-devel') }}      # [linux]    
+    - {{ cdt('mesa-libgl-devel') }}      # [linux]
+    - {{ cdt('mesa-dri-drivers') }}      # [linux]
+    - {{ cdt('libselinux') }}            # [linux]
+    - {{ cdt('libxdamage') }}            # [linux]
+    - {{ cdt('libxfixes') }}             # [linux]
+    - {{ cdt('libxxf86vm') }}            # [linux]
+    - {{ cdt('libxcb') }}                # [linux]
+    - {{ cdt('libxext') }}               # [linux]
+    - {{ cdt('libxau') }}                # [linux]
+    - {{ cdt('libxcomposite-devel') }}   # [linux]
+    - cmake
+    - ninja
+    # On Linux, cmake picks up /usr/bin/python2 (since python2 is checked
+    # first) which is v2.6 and too old. Workaround this by giving it a
+    # new Python 2
+    - python 2.7  # [linux]
+    # On other platforms, use a recent Python (but fix version so we don't
+    # end up with combos being built). This is especially needed on Windows
+    # so we end up with a Python with a recent runtime. 
+    - python 3.8  # [not linux]
+    - perl
+    # only ruby 2.7 and later appear to be available on Windows
+    # and leaving this blank ends up with all possible combination
+    # of versions...
+    - ruby 2.7 
+    - m2-bison  # [win]
+    - bison  # [unix]
+    - m2-flex  # [win]
+    - flex  # [unix]
+    - m2-gperf  # [win]
+    - gperf  # [unix]
   host:
-    # qtwebkit needs to be used against the same version of Qt that
-    # it was released for.
-    - qt {{ ver }}
+    - qt
+    - libxslt
+    - libxml2
+    - sqlite
+    - jpeg
+    - zlib
+    - libpng
+    - libwebp
+    - icu
   run:
-    - qt {{ ver }}
+    - qt
+    - libxslt
+    - libxml2
+    - sqlite
+    - jpeg
+    - zlib
+    - libpng
+    - libwebp
+    - icu
 
 test:
   commands:
-    - test -f $PREFIX/lib/libQt5WebKit.dylib  # [osx]
+    - test -f $PREFIX/lib/libQt5WebKit${SHLIB_EXT}  # [not win]
+    - test -f $PREFIX/lib/libQt5WebKitWidgets${SHLIB_EXT}  # [not win]
+    - if not exist %LIBRARY_BIN%\\Qt5WebKit.dll exit 1  # [win]
+    - if not exist %LIBRARY_BIN%\\Qt5WebKitWidgets.dll exit 1  # [win]
 
 about:
   home: https://wiki.qt.io/Qt_WebKit
-  license: GPL-3.0
-  license_file: LICENSE.GPLv3
+  license: LGPL-2.1-only
+  license_file: LICENSE.LGPLv21
   summary: 'WebKit is one of the major engine to render webpages and execute JavaScript code'
   description: |
     Qt WebKit is the port of WebKit on top of Qt. QtWebKit relies on the public APIs of Qt
