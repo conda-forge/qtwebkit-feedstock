@@ -15,7 +15,7 @@ source:
     - 0002-win-gperf-lf.patch  # [win]
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - qtwebkit
 
