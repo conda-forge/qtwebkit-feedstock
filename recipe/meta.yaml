@@ -13,6 +13,8 @@ source:
     - 0001-win-fix-icu-path.patch  # [win]
     # MSYS gperf needs Unix newlines
     - 0002-win-gperf-lf.patch  # [win]
+    # Fix TRUE/FALSE definition for newer ICU
+    - 0003-linux-icu-TRUE-FALSE.patch  # [linux]
 
 build:
   number: 1
