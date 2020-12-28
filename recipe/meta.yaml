@@ -13,9 +13,11 @@ source:
     - 0001-win-fix-icu-path.patch  # [win]
     # MSYS gperf needs Unix newlines
     - 0002-win-gperf-lf.patch  # [win]
+    # Fix TRUE/FALSE definition for newer ICU
+    - 0003-linux-icu-TRUE-FALSE.patch  # [linux]
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - qtwebkit
 
@@ -79,6 +81,9 @@ requirements:
     - libpng
     - libwebp
     - icu
+    
+  run_constrained:                                            # [osx]
+    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx]
 
 test:
   commands:

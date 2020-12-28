@@ -1,0 +1,12 @@
+--- ./Source/WebCore/CMakeLists.txt.orig	2020-12-28 10:09:15.029917333 +1000
++++ ./Source/WebCore/CMakeLists.txt	2020-12-28 11:15:45.474052232 +1000
+@@ -3778,6 +3778,9 @@
+     ADD_TARGET_PROPERTIES(WebCore COMPILE_FLAGS "-fno-tree-sra")
+ endif ()
+ 
++# For some reason this is required on Linux now (TRUE/FALSE already defined on other platforms?)
++target_compile_definitions(WebCore PRIVATE U_DEFINE_FALSE_AND_TRUE=1)
++
+ if (MSVC)
+     ADD_PRECOMPILED_HEADER("WebCoreTestSupportPrefix.h" "testing/js/WebCoreTestSupportPrefix.cpp" WebCoreTestSupport_SOURCES)
+ endif ()
