@@ -7,7 +7,7 @@ if [ $(uname) == Darwin ]; then
     # Use Conda rather than system icu/libxml2 etc (correct?)
     PLATFORM_OPTS="-D MACOS_USE_SYSTEM_ICU=OFF -D MACOS_BUILD_FRAMEWORKS=OFF -D MACOS_FORCE_SYSTEM_XML_LIBRARIES=OFF"
 else
-    PLATFORM_OPTS=""
+    PLATFORM_OPTS="-D DQt5_DIR=${PREFIX}/lib/cmake/Qt5"
 fi
 
 cmake -G Ninja -D PORT=Qt -D CMAKE_BUILD_TYPE=Release \
