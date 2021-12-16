@@ -14,9 +14,8 @@ cmake -G Ninja -D PORT=Qt -D CMAKE_BUILD_TYPE=Release \
     -D USE_LIBHYPHEN=OFF \
     -D CMAKE_INSTALL_PREFIX="${PREFIX}" \
     -D CMAKE_PREFIX_PATH="${PREFIX}" \
-    -D Qt5Gui_PRIVATE_INCLUDE_DIRS="${PREFIX}/include/qt/QtGui/5.15.2/QtGui" \
     $PLATFORM_OPTS \
-    ..
+    .. || (cat CMakeFiles/CMakeOutput.log && cat CMakeFiles/CMakeError.log && false)
 
 ninja -j$CPU_COUNT
 ninja install
