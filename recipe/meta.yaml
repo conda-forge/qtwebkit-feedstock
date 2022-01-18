@@ -15,6 +15,8 @@ source:
     - 0002-win-gperf-lf.patch  # [win]
     # Fix TRUE/FALSE definition for newer ICU
     - 0003-linux-icu-TRUE-FALSE.patch  # [linux]
+    ## glib patch from https://github.com/archlinux/svntogit-packages/blob/packages/qt5-webkit/trunk/glib-2.68.patch
+    - 0004-linux-glib.patch 
 
 build:
   number: 1
