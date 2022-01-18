@@ -23,6 +23,7 @@ build:
 
 requirements:
   build:
+    - sysroot_linux-64 2.17  # [linux64]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     # The CDT packages below are those used in qt-feedstock
@@ -62,7 +63,8 @@ requirements:
     - m2-gperf  # [win]
     - gperf  # [unix]
   host:
-    - qt
+    - qt-main
+    - glib
     - libxslt
     - libxml2
     - sqlite
@@ -72,7 +74,8 @@ requirements:
     - libwebp
     - icu
   run:
-    - qt
+    - qt-main
+    - glib
     - libxslt
     - libxml2
     - sqlite
