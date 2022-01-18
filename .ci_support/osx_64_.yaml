@@ -12,8 +12,6 @@ cxx_compiler:
 - clangxx
 cxx_compiler_version:
 - '11'
-glib:
-- '2'
 icu:
 - '68'
 jpeg:
