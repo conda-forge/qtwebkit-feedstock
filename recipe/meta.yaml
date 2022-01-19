@@ -15,14 +15,17 @@ source:
     - 0002-win-gperf-lf.patch  # [win]
     # Fix TRUE/FALSE definition for newer ICU
     - 0003-linux-icu-TRUE-FALSE.patch  # [linux]
+    ## glib patch from https://github.com/archlinux/svntogit-packages/blob/packages/qt5-webkit/trunk/glib-2.68.patch
+    - 0004-linux-glib.patch  # [linux] 
 
 build:
-  number: 1
+  number: 2
   run_exports:
     - qtwebkit
 
 requirements:
   build:
+    - sysroot_linux-64 2.17  # [linux64]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     # The CDT packages below are those used in qt-feedstock
@@ -62,7 +65,8 @@ requirements:
     - m2-gperf  # [win]
     - gperf  # [unix]
   host:
-    - qt
+    - qt-main
+    - glib  # [linux]
     - libxslt
     - libxml2
     - sqlite
@@ -72,7 +76,8 @@ requirements:
     - libwebp
     - icu
   run:
-    - qt
+    - qt-main
+    - glib
     - libxslt
     - libxml2
     - sqlite
