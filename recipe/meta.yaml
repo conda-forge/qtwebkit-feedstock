@@ -19,7 +19,7 @@ source:
     - 0004-linux-glib.patch  # [linux] 
 
 build:
-  number: 4
+  number: 5
   run_exports:
     - qtwebkit
 
