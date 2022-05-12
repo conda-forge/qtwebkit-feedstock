@@ -19,7 +19,7 @@ source:
     - 0004-linux-glib.patch  # [linux] 
 
 build:
-  number: 4
+  number: 5
   run_exports:
     - qtwebkit
 
@@ -65,7 +65,7 @@ requirements:
     - m2-gperf  # [win]
     - gperf  # [unix]
   host:
-    - qt
+    - qt-main
     - glib  # [linux]
     - libxslt
     - libxml2
@@ -76,7 +76,7 @@ requirements:
     - libwebp
     - icu
   run:
-    - qt
+    - qt-main
     - glib
     - libxslt
     - libxml2
