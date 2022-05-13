@@ -17,7 +17,7 @@ docker_image:
 glib:
 - '2'
 icu:
-- '69'
+- '70'
 jpeg:
 - '9'
 libpng:
