@@ -7,7 +7,7 @@ channel_targets:
 cxx_compiler:
 - vs2017
 icu:
-- '69'
+- '70'
 jpeg:
 - '9'
 libpng:
