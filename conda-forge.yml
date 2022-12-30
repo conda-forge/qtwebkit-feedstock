@@ -1,5 +1,6 @@
 provider:
   win: azure
+  linux_aarch64: azure
 os_version:
   linux_64: cos7
 conda_forge_output_validation: true
@@ -9,5 +10,6 @@ github:
 conda_build:
   pkg_format: '2'
 build_platform:
-   osx_arm64: osx_64
+  osx_arm64: osx_64
+  linux_aarch64: linux_64
 test_on_native_only: true
