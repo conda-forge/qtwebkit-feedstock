@@ -1,6 +1,14 @@
 --- ./Source/JavaScriptCore/assembler/ARM64Assembler.h.orig	2022-12-30 16:08:07.402011556 +1000
-+++ ./Source/JavaScriptCore/assembler/ARM64Assembler.h	2022-12-30 16:08:30.189748031 +1000
-@@ -2664,7 +2664,7 @@
++++ ./Source/JavaScriptCore/assembler/ARM64Assembler.h	2022-12-30 17:01:36.035938629 +1000
+@@ -34,6 +34,7 @@
+ #include <wtf/Assertions.h>
+ #include <wtf/Vector.h>
+ #include <stdint.h>
++#include <libkern/OSCacheControl.h>
+ 
+ #define CHECK_DATASIZE_OF(datasize) ASSERT(datasize == 32 || datasize == 64)
+ #define DATASIZE_OF(datasize) ((datasize == 64) ? Datasize_64 : Datasize_32)
+@@ -2664,7 +2665,7 @@
  
      static void cacheFlush(void* code, size_t size)
      {
