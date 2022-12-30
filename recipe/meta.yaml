@@ -87,9 +87,6 @@ requirements:
     - libwebp
     - icu
     
-  run_constrained:                                            # [osx]
-    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx]
-
 test:
   commands:
     - test -f $PREFIX/lib/libQt5WebKit${SHLIB_EXT}  # [not win]
