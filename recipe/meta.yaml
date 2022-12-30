@@ -17,9 +17,11 @@ source:
     - 0003-linux-icu-TRUE-FALSE.patch  # [linux]
     ## glib patch from https://github.com/archlinux/svntogit-packages/blob/packages/qt5-webkit/trunk/glib-2.68.patch
     - 0004-linux-glib.patch  # [linux] 
+    # From webkit master
+    - 0005-osx-arm64.patch  # [osx]
 
 build:
-  number: 6
+  number: 7
   run_exports:
     - qtwebkit
 
@@ -86,10 +88,8 @@ requirements:
     - libpng
     - libwebp
     - icu
+    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]
     
-  run_constrained:                                            # [osx]
-    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx]
-
 test:
   commands:
     - test -f $PREFIX/lib/libQt5WebKit${SHLIB_EXT}  # [not win]

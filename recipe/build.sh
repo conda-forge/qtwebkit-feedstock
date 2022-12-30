@@ -10,7 +10,7 @@ else
     PLATFORM_OPTS=""
 fi
 
-cmake -G Ninja -D PORT=Qt -D CMAKE_BUILD_TYPE=Release \
+cmake ${CMAKE_ARGS} -G Ninja -D PORT=Qt -D CMAKE_BUILD_TYPE=Release \
     -D USE_LIBHYPHEN=OFF \
     -D CMAKE_INSTALL_PREFIX="${PREFIX}" \
     -D CMAKE_PREFIX_PATH="${PREFIX}" \

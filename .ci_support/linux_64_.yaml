@@ -1,7 +1,7 @@
 c_compiler:
 - gcc
 c_compiler_version:
-- '10'
+- '11'
 cdt_name:
 - cos7
 channel_sources:
@@ -11,7 +11,7 @@ channel_targets:
 cxx_compiler:
 - gxx
 cxx_compiler_version:
-- '10'
+- '11'
 docker_image:
 - quay.io/condaforge/linux-anvil-cos7-x86_64
 glib:
@@ -25,20 +25,9 @@ libpng:
 libwebp:
 - '1'
 libxml2:
-- '2.9'
+- '2.10'
 perl:
 - 5.32.1
-pin_run_as_build:
-  jpeg:
-    max_pin: x
-  libpng:
-    max_pin: x.x
-  libxml2:
-    max_pin: x.x
-  sqlite:
-    max_pin: x
-  zlib:
-    max_pin: x.x
 sqlite:
 - '3'
 target_platform:
