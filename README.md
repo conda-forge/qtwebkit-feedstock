@@ -1,11 +1,11 @@
-About qtwebkit
-==============
+About qtwebkit-feedstock
+========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/qtwebkit-feedstock/blob/main/LICENSE.txt)
 
 Home: https://wiki.qt.io/Qt_WebKit
 
 Package license: LGPL-2.1-only
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/qtwebkit-feedstock/blob/main/LICENSE.txt)
 
 Summary: WebKit is one of the major engine to render webpages and execute JavaScript code
 
