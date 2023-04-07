@@ -7,7 +7,7 @@ channel_targets:
 cxx_compiler:
 - vs2019
 icu:
-- '70'
+- '72'
 libjpeg_turbo:
 - 2.1.5
 libpng:
