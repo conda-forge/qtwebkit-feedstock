@@ -21,7 +21,7 @@ source:
     - 0005-osx-arm64.patch  # [osx]
 
 build:
-  number: 10
+  number: 11
   run_exports:
     - qtwebkit
 
