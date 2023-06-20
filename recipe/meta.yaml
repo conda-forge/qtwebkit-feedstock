@@ -20,6 +20,7 @@ source:
     - 0004-linux-glib.patch  # [linux] 
     # From webkit master
     - 0005-osx-arm64.patch  # [osx]
+    - 0006-bison37.patch
 
 build:
   number: 12
