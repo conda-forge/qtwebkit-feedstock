@@ -1,0 +1,39 @@
+From ca488738e01db4c6e5dd0b2dea731eed77a9d4fd Mon Sep 17 00:00:00 2001
+From: Mark Harfouche <mark.harfouche@gmail.com>
+Date: Sun, 14 Jan 2024 17:47:42 -0500
+Subject: [PATCH] Fix xmlError * for libxml2 2.12
+
+---
+ Source/WebCore/xml/XSLTProcessor.h          | 2 +-
+ Source/WebCore/xml/XSLTProcessorLibxslt.cpp | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Source/WebCore/xml/XSLTProcessor.h b/Source/WebCore/xml/XSLTProcessor.h
+index cffd1c4..659d16c 100644
+--- a/Source/WebCore/xml/XSLTProcessor.h
++++ b/Source/WebCore/xml/XSLTProcessor.h
+@@ -64,7 +64,7 @@ public:
+ 
+     void reset();
+ 
+-    static void parseErrorFunc(void* userData, xmlError*);
++    static void parseErrorFunc(void* userData, const xmlError*);
+     static void genericErrorFunc(void* userData, const char* msg, ...);
+ 
+     // Only for libXSLT callbacks
+diff --git a/Source/WebCore/xml/XSLTProcessorLibxslt.cpp b/Source/WebCore/xml/XSLTProcessorLibxslt.cpp
+index 8587b00..5b6d296 100644
+--- a/Source/WebCore/xml/XSLTProcessorLibxslt.cpp
++++ b/Source/WebCore/xml/XSLTProcessorLibxslt.cpp
+@@ -78,7 +78,7 @@ void XSLTProcessor::genericErrorFunc(void*, const char*, ...)
+     // It would be nice to do something with this error message.
+ }
+ 
+-void XSLTProcessor::parseErrorFunc(void* userData, xmlError* error)
++void XSLTProcessor::parseErrorFunc(void* userData, const xmlError* error)
+ {
+     PageConsoleClient* console = static_cast<PageConsoleClient*>(userData);
+     if (!console)
+-- 
+2.43.0
+
