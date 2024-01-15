@@ -15,7 +15,7 @@ libpng:
 libwebp:
 - '1'
 libxml2:
-- '2.11'
+- '2.12'
 perl:
 - 5.32.1
 qt_main:

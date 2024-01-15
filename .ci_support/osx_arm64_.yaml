@@ -21,7 +21,7 @@ libpng:
 libwebp:
 - '1'
 libxml2:
-- '2.11'
+- '2.12'
 macos_machine:
 - arm64-apple-darwin20.0.0
 perl:
