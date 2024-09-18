@@ -20,6 +20,7 @@ cmake ${CMAKE_ARGS} -G Ninja -D PORT=Qt -D CMAKE_BUILD_TYPE=Release \
     -D CMAKE_INSTALL_PREFIX="${PREFIX}" \
     -D CMAKE_PREFIX_PATH="${PREFIX}" \
     $PLATFORM_OPTS \
+    -D CMAKE_CXX_STANDARD=17 \
     ..
 
 ninja -j$CPU_COUNT
