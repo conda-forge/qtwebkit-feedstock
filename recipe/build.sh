@@ -19,7 +19,6 @@ cmake ${CMAKE_ARGS} \
     -G Ninja \
     -D PORT=Qt \
     -D USE_LIBHYPHEN=OFF \
-    -D CMAKE_INSTALL_PREFIX="${PREFIX}" \
     -D CMAKE_PREFIX_PATH="${PREFIX}" \
     -D CMAKE_CXX_STANDARD=17 \
     $PLATFORM_OPTS \
