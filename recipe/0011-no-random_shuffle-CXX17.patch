@@ -1,0 +1,29 @@
+--- ./Source/JavaScriptCore/jit/BinarySwitch.cpp.orig	2024-09-23 08:15:38.534921455 +1000
++++ ./Source/JavaScriptCore/jit/BinarySwitch.cpp	2024-09-23 08:32:04.847610797 +1000
+@@ -30,6 +30,7 @@
+ 
+ #include "JSCInlines.h"
+ #include <wtf/ListDump.h>
++#include <random>
+ 
+ namespace JSC {
+ 
+@@ -193,13 +194,11 @@
+         for (unsigned i = 0; i < size; ++i)
+             localCaseIndices.append(start + i);
+         
+-        std::random_shuffle(
+-            localCaseIndices.begin(), localCaseIndices.end(),
+-            [this] (unsigned n) {
+-                // We use modulo to get a random number in the range we want fully knowing that
+-                // this introduces a tiny amount of bias, but we're fine with such tiny bias.
+-                return m_weakRandom.getUint32() % n;
+-            });
++        std::random_device rd;
++        std::mt19937 g(rd());
++            
++        std::shuffle(
++            localCaseIndices.begin(), localCaseIndices.end(), g);
+         
+         for (unsigned i = 0; i < size - 1; ++i) {
+             append(BranchCode(NotEqualToPush, localCaseIndices[i]));

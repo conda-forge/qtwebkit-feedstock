@@ -34,6 +34,7 @@ source:
     # https://www.linuxquestions.org/questions/slackware-14/regression-on-current-with-qt5-webkit-4175720296/
     - 0009-Fixup-for-newer-ruby.patch
     - 0010-Don-t-double-define-things-for-CXX17-compilers.patch
+    - 0011-no-random_shuffle-CXX17.patch
 
 build:
   number: 17
