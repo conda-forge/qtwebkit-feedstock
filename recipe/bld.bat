@@ -10,6 +10,7 @@ cmake %CMAKE_ARGS% ^
     -D USE_LIBHYPHEN=OFF ^
     -D CMAKE_PREFIX_PATH=%LIBRARY_PREFIX% ^
     -D CMAKE_CXX_STANDARD=17 ^
+    -D ENABLE_API_TESTS=OFF ^
     ..
 if errorlevel 1 exit 1
 
