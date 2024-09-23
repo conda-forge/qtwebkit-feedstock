@@ -26,15 +26,25 @@ source:
     # https://github.com/qtwebkit/qtwebkit/pull/1100
     - 0006-Fix-xmlError-for-libxml2-2.12.patch
 
+    # Patches from hmaarrfk
+    - 0007-Find-better-python.patch
+    - 0008-Include-more-c-headers.patch
+    # https://src.fedoraproject.org/rpms/qt5-qtwebkit/blob/rawhide/f/webkit-offlineasm-warnings-ruby27.patch
+    # https://github.com/WebKit/WebKit/commit/c7d19a492d97f9282a546831beb918e03315f6ef
+    # https://www.linuxquestions.org/questions/slackware-14/regression-on-current-with-qt5-webkit-4175720296/
+    - 0009-Fixup-for-newer-ruby.patch
+    - 0010-Don-t-double-define-things-for-CXX17-compilers.patch
+    - 0011-no-random_shuffle-CXX17.patch
+
 build:
-  number: 16
+  number: 17
   run_exports:
     - qtwebkit
 
 requirements:
   build:
-    - sysroot_linux-64 2.17  # [linux64]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     # The CDT packages below are those used in qt-feedstock
     - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
@@ -53,25 +63,15 @@ requirements:
     - {{ cdt('libxcomposite-devel') }}   # [linux]
     - cmake
     - ninja
-    # On Linux, cmake picks up /usr/bin/python2 (since python2 is checked
-    # first) which is v2.6 and too old. Workaround this by giving it a
-    # new Python 2
-    - python 2.7  # [linux]
-    # On other platforms, use a recent Python (but fix version so we don't
-    # end up with combos being built). This is especially needed on Windows
-    # so we end up with a Python with a recent runtime.
-    - python 3.8  # [not linux]
+    - python 3.12
     - perl
-    # only ruby 2.7 and later appear to be available on Windows
-    # and leaving this blank ends up with all possible combination
-    # of versions...
-    - ruby 2.7
-    - m2-bison  # [win]
+    - ruby >=3
     - bison  # [unix]
-    - m2-flex  # [win]
     - flex  # [unix]
-    - m2-gperf  # [win]
     - gperf  # [unix]
+    - m2-bison  # [win]
+    - m2-flex  # [win]
+    - m2-gperf  # [win]
   host:
     - qt-main
     - glib  # [linux]
@@ -83,18 +83,6 @@ requirements:
     - libpng
     - libwebp
     - icu
-  run:
-    - qt-main
-    - glib
-    - libxslt
-    - libxml2
-    - sqlite
-    - libjpeg-turbo
-    - zlib
-    - libpng
-    - libwebp
-    - icu
-    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]
 
 test:
   commands:

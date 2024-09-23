@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -ex
 mkdir build
 cd build
 
@@ -15,10 +15,12 @@ else
 fi
 echo "PLATFORM_OPTS $PLATFORM_OPTS"
 
-cmake ${CMAKE_ARGS} -G Ninja -D PORT=Qt -D CMAKE_BUILD_TYPE=Release \
+cmake ${CMAKE_ARGS} \
+    -G Ninja \
+    -D PORT=Qt \
     -D USE_LIBHYPHEN=OFF \
-    -D CMAKE_INSTALL_PREFIX="${PREFIX}" \
     -D CMAKE_PREFIX_PATH="${PREFIX}" \
+    -D CMAKE_CXX_STANDARD=17 \
     $PLATFORM_OPTS \
     ..
 

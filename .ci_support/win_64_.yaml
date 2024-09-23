@@ -1,5 +1,7 @@
 c_compiler:
 - vs2019
+c_stdlib:
+- vs
 channel_sources:
 - conda-forge
 channel_targets:
@@ -7,7 +9,7 @@ channel_targets:
 cxx_compiler:
 - vs2019
 icu:
-- '73'
+- '75'
 libjpeg_turbo:
 - '3'
 libpng:
@@ -15,7 +17,7 @@ libpng:
 libwebp:
 - '1'
 libxml2:
-- '2.12'
+- '2'
 perl:
 - 5.32.1
 qt_main:
@@ -25,4 +27,4 @@ sqlite:
 target_platform:
 - win-64
 zlib:
-- '1.2'
+- '1'
