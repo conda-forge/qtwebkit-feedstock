@@ -37,7 +37,7 @@ source:
     - 0011-no-random_shuffle-CXX17.patch
 
 build:
-  number: 18
+  number: 19
   run_exports:
     - qtwebkit
 
@@ -76,7 +76,7 @@ requirements:
     - qt-main
     - glib  # [linux]
     - libxslt
-    - libxml2
+    - libxml2-devel
     - sqlite
     - libjpeg-turbo
     - zlib
