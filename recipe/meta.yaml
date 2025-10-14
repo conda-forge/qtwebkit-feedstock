@@ -85,6 +85,7 @@ requirements:
     - icu
     - gstreamer  # [linux]
     - gst-plugins-base  # [linux]
+    - pkg-config  # [linux]
 
 test:
   commands:
