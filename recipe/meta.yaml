@@ -83,6 +83,7 @@ requirements:
     - libpng
     - libwebp
     - icu
+    - gst-plugins-base  # [linux]
 
 test:
   commands:
