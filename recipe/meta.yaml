@@ -83,6 +83,7 @@ requirements:
     - libpng
     - libwebp
     - icu
+    - gstreamer  # [linux]
     - gst-plugins-base  # [linux]
 
 test:
