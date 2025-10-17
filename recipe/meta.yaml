@@ -10,7 +10,7 @@ source:
   url: https://github.com/qtwebkit/qtwebkit/releases/download/qtwebkit-5.212.0-alpha4/qtwebkit-5.212.0-alpha4.tar.xz
   sha256: 9ca126da9273664dd23a3ccd0c9bebceb7bb534bddd743db31caf6a5a6d4a9e6
   patches:
-    # Patches to make this (older) aplpha the same as the (later) snaphot
+    # Patches to make this (older) alpha the same as the (later) snaphot
     # we were downloading from qt.io but was then removed
     - 0000-fixes-from-snapshot.patch
     # Fix path for ICU libs on Windows - seems to pick up some system libs instead
@@ -35,9 +35,12 @@ source:
     - 0009-Fixup-for-newer-ruby.patch
     - 0010-Don-t-double-define-things-for-CXX17-compilers.patch
     - 0011-no-random_shuffle-CXX17.patch
+    # https://src.fedoraproject.org/rpms/qt5-qtwebkit/raw/rawhide/f/qtwebkit-fix-build-gcc14.patch
+    - 0012-qtwebkit-fix-build-gcc14.patch
 
 build:
-  number: 18
+  number: 19
+  skip: true  # [linux and ppc64le]
   run_exports:
     - qtwebkit
 
@@ -74,9 +77,8 @@ requirements:
     - m2-gperf  # [win]
   host:
     - qt-main
-    - glib  # [linux]
     - libxslt
-    - libxml2
+    - libxml2-devel
     - sqlite
     - libjpeg-turbo
     - zlib

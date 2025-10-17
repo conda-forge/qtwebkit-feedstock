@@ -11,6 +11,7 @@ cmake %CMAKE_ARGS% ^
     -D CMAKE_PREFIX_PATH=%LIBRARY_PREFIX% ^
     -D CMAKE_CXX_STANDARD=17 ^
     -D ENABLE_API_TESTS=OFF ^
+    -D CMAKE_POLICY_VERSION_MINIMUM=3.5 ^
     ..
 if errorlevel 1 exit 1
 
