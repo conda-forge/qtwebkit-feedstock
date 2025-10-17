@@ -76,7 +76,6 @@ requirements:
     - m2-gperf  # [win]
   host:
     - qt-main
-    - glib  # [linux]
     - libxslt
     - libxml2-devel
     - sqlite
