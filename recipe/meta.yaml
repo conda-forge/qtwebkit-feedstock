@@ -39,7 +39,7 @@ source:
     - 0012-qtwebkit-fix-build-gcc14.patch
 
 build:
-  number: 19
+  number: 20
   skip: true  # [linux and ppc64le]
   run_exports:
     - qtwebkit
