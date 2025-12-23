@@ -19,7 +19,7 @@ cxx_compiler_version:
 docker_image:
 - quay.io/condaforge/linux-anvil-x86_64:alma9
 icu:
-- '75'
+- '78'
 libjpeg_turbo:
 - '3'
 libpng:
