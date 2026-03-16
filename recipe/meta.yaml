@@ -39,7 +39,7 @@ source:
     - 0012-qtwebkit-fix-build-gcc14.patch
 
 build:
-  number: 20
+  number: 21
   skip: true  # [linux and ppc64le]
   run_exports:
     - qtwebkit
@@ -50,20 +50,6 @@ requirements:
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     # The CDT packages below are those used in qt-feedstock
-    - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
-    - {{ cdt('libx11-devel') }}          # [linux]
-    - {{ cdt('libxext-devel') }}         # [linux]
-    - {{ cdt('libxrender-devel') }}      # [linux]
-    - {{ cdt('mesa-libgl-devel') }}      # [linux]
-    - {{ cdt('mesa-dri-drivers') }}      # [linux]
-    - {{ cdt('libselinux') }}            # [linux]
-    - {{ cdt('libxdamage') }}            # [linux]
-    - {{ cdt('libxfixes') }}             # [linux]
-    - {{ cdt('libxxf86vm') }}            # [linux]
-    - {{ cdt('libxcb') }}                # [linux]
-    - {{ cdt('libxext') }}               # [linux]
-    - {{ cdt('libxau') }}                # [linux]
-    - {{ cdt('libxcomposite-devel') }}   # [linux]
     - cmake
     - ninja
     - python 3.12
@@ -85,6 +71,12 @@ requirements:
     - libpng
     - libwebp
     - icu
+    - xorg-xorgproto                     # [linux]
+    - xorg-libx11                        # [linux]
+    - xorg-libxext                       # [linux]
+    - xorg-libxrender                    # [linux]
+    - libgl-devel                        # [linux]
+    - xorg-libxcomposite                 # [linux]
 
 test:
   commands:
