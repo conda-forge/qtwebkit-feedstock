@@ -3,10 +3,9 @@
 
 package:
   name: qtwebkit
-  version: {{ version }}
+  version: "{{ version }}"
 
 source:
-  #url: http://download.qt.io/snapshots/ci/qtwebkit/{{ version }}/{{ snapshotid }}/src/submodules/qtwebkit-opensource-src-{{ version }}.tar.xz
   url: https://github.com/qtwebkit/qtwebkit/releases/download/qtwebkit-5.212.0-alpha4/qtwebkit-5.212.0-alpha4.tar.xz
   sha256: 9ca126da9273664dd23a3ccd0c9bebceb7bb534bddd743db31caf6a5a6d4a9e6
   patches:
@@ -39,7 +38,7 @@ source:
     - 0012-qtwebkit-fix-build-gcc14.patch
 
 build:
-  number: 20
+  number: 21
   skip: true  # [linux and ppc64le]
   run_exports:
     - qtwebkit
@@ -49,21 +48,6 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
-    # The CDT packages below are those used in qt-feedstock
-    - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
-    - {{ cdt('libx11-devel') }}          # [linux]
-    - {{ cdt('libxext-devel') }}         # [linux]
-    - {{ cdt('libxrender-devel') }}      # [linux]
-    - {{ cdt('mesa-libgl-devel') }}      # [linux]
-    - {{ cdt('mesa-dri-drivers') }}      # [linux]
-    - {{ cdt('libselinux') }}            # [linux]
-    - {{ cdt('libxdamage') }}            # [linux]
-    - {{ cdt('libxfixes') }}             # [linux]
-    - {{ cdt('libxxf86vm') }}            # [linux]
-    - {{ cdt('libxcb') }}                # [linux]
-    - {{ cdt('libxext') }}               # [linux]
-    - {{ cdt('libxau') }}                # [linux]
-    - {{ cdt('libxcomposite-devel') }}   # [linux]
     - cmake
     - ninja
     - python 3.12
@@ -85,6 +69,12 @@ requirements:
     - libpng
     - libwebp
     - icu
+    - xorg-xorgproto                     # [linux]
+    - xorg-libx11                        # [linux]
+    - xorg-libxext                       # [linux]
+    - xorg-libxrender                    # [linux]
+    - libgl-devel                        # [linux]
+    - xorg-libxcomposite                 # [linux]
 
 test:
   commands:
