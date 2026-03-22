@@ -3,7 +3,7 @@
 
 package:
   name: qtwebkit
-  version: {{ version }}
+  version: "{{ version }}"
 
 source:
   url: https://github.com/qtwebkit/qtwebkit/releases/download/qtwebkit-5.212.0-alpha4/qtwebkit-5.212.0-alpha4.tar.xz
@@ -48,7 +48,6 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
-    # The CDT packages below are those used in qt-feedstock
     - cmake
     - ninja
     - python 3.12
